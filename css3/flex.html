@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>flex</title>
+<style>
+* { margin:0; padding:0; list-style:none; }
+body { padding:10px;  }
+ul {
+	background:black;
+	height:500px;
+	color:white;
+	display:flex;
+	flex-direction: row;
+}
+li {
+	background:red;
+	border:1px solid white;
+	width:100px;
+	height:100px;
+
+}
+</style>
+</head>
+
+<body>
+
+	<ul data-q="123456">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+	
+	<br/>
+	<hr/>
+	<br/>
+	<br/>
+	<br/>
+	
+flex-direction
+
+	column			row
+	align-items		justify-content
+<script>
+
+	var oUl=document.getElementsByTagName("ul")[0];
+	
+	//alert(oUl.dataset.q);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

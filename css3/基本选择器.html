@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>无标题文档</title>
+<style type="text/css">
+
+/**{margin:0;padding:0;}*/
+.demo{
+width:300px;
+border:1px solid #ccc;
+padding:10px;
+}
+
+li{
+float:left;
+height:20px;
+line-height: 20px;
+width: 20px;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;
+text-align:center;
+background:#f36;
+color:green;
+margin-right:5px;
+}
+.clearfix{
+list-style:none;
+margin:0;padding:0;
+overflow:auto;
+_height:1%;
+}
+
+
+.important.items {background:#ccc;}/*所有浏览器都支持类选择器，但多类选择器（.className1.className2）不被ie6支持。*/
+</style>
+</head>
+<body>
+<div class="demo">
+<ul class="clearfix">
+<li id="first" class="first">1</li>
+<li class="active important">2</li>
+<li class="important items">3</li>
+<li class="important">4</li>
+<li class="items">5</li>
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>9</li>
+<li id="last" class="last">10</li>
+</ul>
+</div>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>animation</title>
+</head>
+<style type="text/css">
+.div1 {
+	width: 10px;
+	height: 10px;
+	margin: 50px;
+	background-color: #ccc;
+	-webkit-animation-name: my ;/*动画名称*/
+	-webkit-animation-duration:10s;/*动画持续时间*/
+	-webkit-animation-timing-function:ease-in-out;/*动画速率函数*/
+	-webkit-animation-delay:2s;/*动画延迟时间*/
+	-webkit-animation-iteration-count:infinite;/*动画循环次数*/
+	-webkit-animation-play-state: running;/*paused 暂停 继续动画的执行*/
+	-webkit-animation-direction: alternate;/* 由0%-100% 再由100%-0% */
+	-webkit-animation-fill-mode: forwards;/* 动画停止时候的元素样式 和结束时候的相同很有用处 */
+}
+
+@-webkit-keyframes my {
+	0% {
+		margin-left:50px;
+	}
+	50% {
+		margin-left:500px;
+	}
+	100% {
+		margin-left:50px;
+	}
+}
+
+/* transition */
+input {
+	width: 160px;
+	height: 20px;
+	border: 1px solid #9EAFC2;
+	outline:none;
+	-webkit-transition-property: all; /* 要过渡的css样式列表 */
+	-webkit-transition-duration: .9s;/* 过渡需要的时长 */
+	-webkit-transition-delay: 2s;/* 过渡的延迟时间 */
+	-webkit-transition-timing-function: ease-out;/* 过渡的效果函数 */
+}
+
+
+input:focus {
+	-webkit-box-shadow: 0 0 8px 1px #79A3D2;
+}
+/*
+transition 和 animation 不同点一在于 transition 需要触发某些时间 比如 onfocus ... 然后样式的改变是动画效果的改变。
+
+*/
+</style>
+<body>
+	<div class="div1"></div>
+
+
+	<input type="text" name="some" />
+
+
+</body>
+</html>

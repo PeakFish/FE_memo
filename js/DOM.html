@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+<title>DOM</title>
+</head>
+<body>
+<div id="div" class="div">
+	<span id="span" class="span"></span>
+</div>
+
+<ul id="ul" class="ul">
+	<li id="li" class="li"></li>
+</ul>
+<script>
+	var oDiv = document.getElementById("div");
+	var oSpan = oDiv.getElementsByTagName("span")[0];
+	var oUl = document.getElementById("ul");
+	var oLi = oUl.getElementsByTagName("li")[0];
+
+/* 元素获取 */
+	document.documentElement;//这个元素是文档中的 html 标签，所有浏览器
+	document.getElementById("");//通过id获取元素 只能作用于document上
+	document.createElement("li");//创建元素
+
+	//oDiv.querySelector();//高级选择元素
+	//oDiv.querySelectorAll();
+
+	oDiv.getElementsByTagName("");//获取div的孩子元素
+	//document.designMode="on";//富文本编辑器的属性
+	oDiv.parentNode;//元素的父元素
+	oDiv.offsetParent;//获取有定位的父级元素
+	//*获取兄弟元素的属性
+	oDiv.children;//只有子元素的数组 ie下还包含注释（fuck ie8 和 ie6 是这样的）。
+	oDiv.childNodes;//包含所有的子节点的数组
+	//*只包含元节点的属性
+	oDiv.ownerDocument
+
+/* 文档操作 */
+	oDiv.appendChild(oSpan);//添加元素
+	oDiv.insertBefore(oLi,oSpan);//添加元素 在制定节点之前
+	//oDiv.removeChild(oSpan);//删除元素
+	oDiv.replaceChild(oUl,oSpan);//替换元素 第一个参数是新元素，第二个参数是老元素
+	oDiv.cloneNode(true);//复制元素。加不加true选择是否复制子元素
+	//oDiv.insertAdjacentHTML();
+	document.createDocumentFragment();// (智能社) 创建文档碎片
+	oDiv.innerHTML+='<span>123</span>';
+	alert(oDiv.outerHTML+='<span>123</span>');//这种方式可以添加兄弟元素 IE6+
+	oDiv.classList api //有时间添加上
+
+	var formData = new FormData();//表单formData对象可以用AJAX上传文件
+
+
+/*
+var range = document.createRange();
+console.log(range);
+range.selectNodeContents(document.body);
+console.log(range.createContextualFragment("<a>"));
+*/
+
+	oDiv.nodeName;//"DIV"
+	oDiv.nodeType;//元素element 1 属性attr 2 文本text 3 注释comments 8 文档document 9
+	oDiv.nodeValue;//
+
+/* 属性操作 */
+	oDiv.setAttribute("href",123123);
+	oDiv.getAttribute("href",3);//第二个参数见javascript框架设计 234页
+	//oDiv.hasAttribute("href");//IE6-
+	oDiv.attributes;//元素的属性集合
+
+/* 元素的位置 */
+	oDiv.getBoundingClientRect();
+
+/* 滚动条 */
+	/* 在元素上面调用 窗口滚动到显示元素的位置 */
+	oDiv.scrollIntoView();
+	oDiv.scrollLeft
+	oDiv.scrollTop
+	/*scrollTo 滚动到对应的像素位置 x y ,scroll 好像和前者一样, scrollBy 当前的滚动值在增加相应的值 */
+	window.scrollTo(1,1);
+	window.scroll(1,1);
+	window.scrollBy(1,1);
+	window.pageXOffset;//
+	window.pageYOffset;//
+
+
+
+	//样式操作
+	oDiv.className="";//改变元素的class 名字
+	oDiv.style.backgroundColor="";//改变元素的某一个属性 把-转换为驼峰
+	oDiv.style.cssText="color:red;padding:10;";//设置一系列的属性
+
+
+
+
+					//ff,ie								//chrome
+	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;//页面滚动过的高度
+	document.documentElement.clientHeight;//可视区的高度
+	window.scrollTo(0,0);//滚动到页面的位置两个参数第一个是x轴，第二个是y轴 返回顶部的简单方法
+	//alert(document.body.clientHeight);
+
+
+
+
+
+
+/* 事件操作 */
+
+//焦点事件
+//onfocus
+//onblur
+
+//用这种添加事件的方式，事件对象不需要做兼容处理
+myAddEvent(oDiv,"click",function(e){
+	alert(e.clientX);
+});
+//用这种添加事件的方式，事件对象需要做兼容处理
+oDiv.onclick=function(e){
+	var oEvent=e|| window.event;
+	alert(oEvent.clientX);
+}
+//事件委托、事件代理的方式
+document.onmousemove=function(e){
+		//标准		//IE
+	var oEvent=e|| window.event;
+	var oTarget=oEvent.target || oEvent.srcElement;
+	//console.log(oTarget.tagName);//发生事件的元素
+}
+
+
+
+
+
+
+
+
+
+/***********  移动端   *************/
+
+//手指touch事件
+/*oDiv.addEventListener('touchstart', function(event) {//事件touchmove touchend
+	event.preventDefault();//取消浏览器默认行为
+	if (event.changedTouches.length == 1){//屏幕上只有一个手指的时候
+		event.changedTouches[0].pageX;
+		event.changedTouches[0].pageY;
+		event.changedTouches[0].screenY;
+	}
+}, false);*/
+
+/*event.changedTouches.length 手指列表。
+在touchstart的时候 每个手指的length只能是一 每个手指点击的时候发生一次touchstart事件
+在touchmove的时候 手指类表是全的，
+在touchend 中是手指移除的列表，一个一个的发生。
+*在测试的时候 点击一个元素以后 如果不点击另外的元素 那么这个元素的 onmouseover 事件会一直发生。（:hove 样式可能也会一直作用）
+//测试的代码如下
+document.addEventListener('touchstart', function(event) {
+	//event.preventDefault();//取消浏览器默认行为
+	oDiv.innerHTML+=" start: "+event.changedTouches.length;
+}, false);
+
+document.addEventListener('touchmove', function(event) {
+	//event.preventDefault();
+	oDiv.innerHTML+=" move: "+event.changedTouches.length;
+}, false);
+
+document.addEventListener('touchend', function(event) {
+	//event.preventDefault();
+	oDiv.innerHTML+=" end: "+event.changedTouches.length;
+}, false);*/
+
+/*
+
+bugs
+使用input type="file"上传文件是 小米手机默认浏览器 input不能设施display:none;改成宽高全为0。
+
+*/
+
+
+
+
+</script>
+
+<!--[if !IE]><!-->
+<h1>您使用不是 Internet Explorer</h1>
+<!--<![endif]-->
+</body>
+</html>

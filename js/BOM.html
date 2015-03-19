@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="common.js"></script>
+<title>DOM</title>
+</head>
+<body>
+<div id="div" class="div">
+	<span id="span" class="span"></span>
+</div>
+
+<ul id="ul" class="ul">
+	<li id="li" class="li" onclick="window.open('http://baidu.com')">加在元素上面的window.open方法是新窗口打开的</li>
+</ul>
+<script>
+
+	window.location;//存放当前地址
+	//window.open("http://baidu.com");
+	document.location.protocol;//协议信息 string like "https:"?
+	document.referrer;//页面来路
+
+//iframe 操作
+//嵌套的iframe页面的地址在同域名下也要写绝对地址，相对地址 / 开头的属于跨域行为。
+
+//瀑布流的动态加载内容滚动条增加会触发ie6的window.onresize
+
+//unescape() 函数可对通过 escape() 编码的字符串进行解码。(感觉像urldecode那种的编码有%数字的)
+//decodeURIComponent() decodeURI()
+//escape() unescape()
+//unescape("%3C");
+
+
+
+//返回前一页的网址 document.referrer
+
+</script>
+</body>
+</html>

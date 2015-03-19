@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<style>
+.demo {
+    width: 100px;
+    height: 50px;    
+    background:;
+  }
+.dome2 {
+
+/*
+background: -moz-linear-gradient(right 30deg,#ccc 55%,#000);
+渐变的px是指它的纯色出现的位置（red 10px） 它表示纯红色出现在第十个像素两边的颜色是渐变的
+
+*/
+background: -webkit-linear-gradient(left,red 10px,black 10px,red 20px,black 20px);
+background: -moz-linear-gradient(30deg,#ccc,#000);
+
+
+}
+.domea{
+background: -moz-radial-gradient(#ace, #f96, #1E90FF);
+background: -webkit-radial-gradient(red,green,blue);
+
+
+
+}
+.domeb{
+background: -webkit-radial-gradient(bottom left,circle,red,green,blue);
+}
+.domec{
+background: -webkit-radial-gradient(bottom left,ellipse,red,green,blue);
+
+}
+.domed{
+
+background: -moz-repeating-linear-gradient(top left -45deg, #ace, #ace 5px, #f96 5px, #f96 10px);
+/*
+background: -webkit-repeating-linear-gradient(-45deg, red, red 5px, blue 5px, blue 10px);
+
+background: -webkit-repeating-linear-gradient(red,red 5px, blue 5px,blue 10px,yellow 10px,yellow 15px);
+
+
+*/
+background: -webkit-repeating-linear-gradient(red,red 5px, blue 5px,blue 10px);
+}
+</style>
+</head>
+<body>
+
+
+<div class="demo dome2"></div>
+<br/><br/>
+<div class="demo domea" alt="cc"></div>
+<br/><br/>
+<div class="demo domeb" alt="cc"></div>
+<br/><br/>
+<div class="demo domec" alt="cc"></div>
+<br/><br/>
+<div class="demo domed" alt="cc"></div>
+
+</body>
+</html>
