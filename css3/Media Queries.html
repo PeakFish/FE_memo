@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>媒体查询</title>
+<style>
+* { margin: 0; padding: 0; }
+
+.div1 {}
+
+
+/* 设备竖屏时调用该段css代码 */
+@media all and (orientation : portrait){
+body{
+  background-color:blue;
+ }
+}
+/* 设备横屏时调用该段css代码 */
+@media all and (orientation : landscape){
+body {
+  background-color:red;
+ }
+}
+
+
+/* 小pad竖屏 */
+@media (min-width:595px) and (max-width:750px) {
+
+
+
+
+
+
+}
+
+
+</style>
+</head>
+<body>
+
+	<div class="div1"></div>
+
+
+</body>
+</html>
