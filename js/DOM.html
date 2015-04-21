@@ -76,7 +76,10 @@ console.log(range.createContextualFragment("<a>"));
 	/* 在元素上面调用 窗口滚动到显示元素的位置 */
 	oDiv.scrollIntoView();
 	oDiv.scrollLeft
-	oDiv.scrollTop
+	oDiv.scrollTop//这个属性设置值可以滚动里面超出了的元素
+	oDiv.scrollHeight//包含滚动距离的整体高度，ie6、7 有问题
+
+
 	/*scrollTo 滚动到对应的像素位置 x y ,scroll 好像和前者一样, scrollBy 当前的滚动值在增加相应的值 */
 	window.scrollTo(1,1);
 	window.scroll(1,1);
@@ -91,8 +94,8 @@ console.log(range.createContextualFragment("<a>"));
 	oDiv.style.backgroundColor="";//改变元素的某一个属性 把-转换为驼峰
 	oDiv.style.cssText="color:red;padding:10;";//设置一系列的属性
 
-
-
+	oDiv.offsetTop//
+	oDiv.offsetLeft//
 
 					//ff,ie								//chrome
 	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;//页面滚动过的高度
