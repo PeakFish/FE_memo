@@ -533,3 +533,19 @@ if (!Function.prototype.bind) {
     return fBound;
   };
 }
+
+
+//获取图片原始宽高 http://www.cnblogs.com/snandy/p/3704218.html
+
+function getImgNaturalDimensions(img, callback) {
+
+    if (img.naturalWidth) { // 现代浏览器
+		callback(img.naturalWidth, image.naturalHeight);
+    } else { // IE6/7/8
+        var imgae = new Image()
+        image.src = img.src
+        image.onload = function(){
+            callback(image.width, image.height);
+        }
+    }
+}
