@@ -318,7 +318,7 @@ var meTools={
             //border left
             borderX = parseInt(this.getStyle(obj, 'border-left-width') || 0, 10) || 
                     parseInt(this.getStyle(obj, 'borderLeftWidth') || 0, 10) || 0,
-                    
+
             borderY = parseInt(this.getStyle(obj, 'border-top-width') || 0, 10) || 
                     parseInt(this.getStyle(obj, 'borderTopWidth') || 0, 10) || 0;
 
@@ -548,4 +548,52 @@ function getImgNaturalDimensions(img, callback) {
             callback(image.width, image.height);
         };
     }
+}
+
+// 工具时间处理函数
+// difference in years, months, and days between 2 dates
+function DifFechasAMD(dIni, dFin) {
+    var dAux, nAnos, nMeses, nDias, cRetorno;
+    // final date always greater than the initial
+    if (dIni > dFin) {
+        dAux = dIni;
+        dIni = dFin;
+        dFin = dAux;
+    }
+    // calculate years
+    nAnos = dFin.getFullYear() - dIni.getFullYear();
+    // translate the initial date to the same year that the final
+    dAux = new Date(dIni.getFullYear() + nAnos, dIni.getMonth(), dIni.getDate());
+    // Check if we have to take a year off because it is not full
+    if (dAux > dFin) {
+        --nAnos;
+    }
+    // calculate months
+    nMeses = dFin.getMonth() - dIni.getMonth();
+    // We add in months the part of the incomplete Year
+    if (nMeses < 0) {
+        nMeses = nMeses + 12;
+    }
+    // Calculate days
+    nDias = dFin.getDate() - dIni.getDate();
+    // We add in days the part of the incomplete month
+    if (nDias < 0) {
+        nDias = nDias + DifFechasDiasDelMes(dIni);
+    }
+    // if the day is greater, we quit the month
+    if (dFin.getDate() < dIni.getDate()) {
+        if (nMeses == 0) {
+            nMeses = 11;
+        }
+        else {
+            --nMeses;
+        }
+    }
+    cRetorno = {"nAnos":nAnos,"nMeses":nMeses,"nDias":nDias};
+    return cRetorno;
+}
+
+function DifFechasDiasDelMes(date) {
+    date = new Date(date);
+    return 32 - new Date(date.getFullYear(), date.getMonth(), 32).getDate();
 }
