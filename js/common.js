@@ -550,6 +550,28 @@ function getImgNaturalDimensions(img, callback) {
     }
 }
 
+
+
+//
+function numRange(num, min, max){
+
+    return Math.max(min, Math.min(num, max));
+
+}
+
+function numCircle(num, len){
+
+    num %= len;
+
+    num = num < 0 ? num + len : num ;
+
+    return num;
+}
+
+
+
+
+
 // 工具时间处理函数
 // difference in years, months, and days between 2 dates
 function DifFechasAMD(dIni, dFin) {
@@ -597,3 +619,6 @@ function DifFechasDiasDelMes(date) {
     date = new Date(date);
     return 32 - new Date(date.getFullYear(), date.getMonth(), 32).getDate();
 }
+
+
+
