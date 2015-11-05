@@ -176,7 +176,7 @@ function doMove(obj, json, fnEnd){//让物体开始减速运动
             obj.style[attr]=iCur+iSpeed+'px';
         }
     }
-    
+
     if(bStop){
         clearInterval(obj.timer);
         obj.timer=null;
