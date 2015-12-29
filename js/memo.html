@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>css 备忘</title>
+</head>
+<body>
+
+克隆数组              arr.concat();                         或者   arr.concat(); 
+去字符串前后的空格    str.replace(/(^\s*)|(\s*$)/g, "");    或者   str.rtrim();
+把nodelist 转换成数组 Array.prototype.slice.call(arr,0);    或者   [].slice.call(arr,0);
+
+firefox插件 firebug wappalyzer yslow
+
+
+
+1 || 0 && 2
+! 1 || 0 && 2
+
+
+
+_.throttle 和 _.debounce 
+
+
+js的random() 方法可返回介于 0 ~ 1 之间的一个随机数。包含0 不包含1[0-1)
+
+
+
+智能社学习
+获取css样式
+getStyle		obj.currentStyle[name]	getComputedStyle(obj, false)[name]
+可视区的高度		document.documentElement.clientHeight
+页面上方滑动距离的搞	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+给元素添加事件
+获取事件对象  on...=function (e){var oEvent=e||event;}
+取消事件冒泡 oEvent.cancelBubble=true;
+
+
+
+创建单选钮:
+
+使用document.uniqueID属性来确定脚本在哪个浏览器中运行时,可以结合IE特定的方法和标准兼容的方法,这就会得到以下代码:
+
+if(document.uniqueID){
+    //Internet Explorer
+    var radioButton=document.createElement("<input type='radio' name='radioButton' value='checked'>");
+}else{
+    //Standards Compliant
+    var radioButton=document.createElement("input");
+    radioButton.setAttribute("type","radio");
+    radioButton.setAttribute("name","radioButton");
+    radioButton.setAttribute("value","checked");
+}
+
+
+
+
+</body>
+</html>
