@@ -46,6 +46,7 @@
 	//oDiv.insertAdjacentHTML();
 	document.createDocumentFragment();// (智能社) 创建文档碎片
 	oDiv.innerHTML+='<span>123</span>';
+	oDiv.innerText+='<span>123</span>';//火狐浏览器不支持 innerText 支持innerHTML
 	alert(oDiv.outerHTML+='<span>123</span>');//这种方式可以添加兄弟元素 IE6+
 	oDiv.classList api //有时间添加上
 
