@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Promise</title>
+</head>
+<body>
+
+<!--
+只要是then的上一个函数返回的是Promise就会有延迟效果
+-->
+<!--
+顺便箭头函数
+参数列表只有一个参数可以没有小括号=>函数体只有一条语句可以没有大括号并且默认return这条语句。
+hax: 推荐所有的回掉函数使用 箭头函数
+-->
+<script>
+
+  function test1(){
+
+    return new Promise((resolve, reject) => {
+      // console.log(resolve);
+      // console.log(reject);
+
+      setTimeout(() => {
+        resolve('123465');
+      }, 1000);
+
+    });
+
+  }
+
+  test1().then((resolve) => {
+
+    setTimeout(() => {
+      console.log(resolve);
+      return 2;
+    }, 1000);
+
+  }).then((resolve) => {
+
+    console.log(resolve);
+
+  }).catch((e) => {
+
+    console.log(e);
+
+  });
+
+</script>
+
+<script>
+  //穿透 好像是在处理过一次以后就不穿透了
+  Promise.resolve('foo').then(Promise.resolve('bar')).then(function (result) {
+    console.log(result);//'foo'
+  }).then(function (result) {
+    console.log(result);//undefined
+  });
+
+</script>
+
+
+<script>
+
+  function test2(){
+
+    return Promise.all();
+
+  }
+
+</script>
+
+
+
+</body>
+</html>
