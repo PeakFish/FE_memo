@@ -20,7 +20,7 @@ function BrowserVersion(){
     }else if(Sys.safari){
         return "Safari"+Sys.safari;
     }else{
-        return false;
+        return '';
     }
 }
 
