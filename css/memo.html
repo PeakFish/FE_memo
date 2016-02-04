@@ -53,8 +53,14 @@ word-break: break-all;
 强制不换行
 white-space:nowrap;
 
-
-
+<div id="div1">
+  <div id="div2">为什么父容器 min-height:100%; 子容器 height:100%; 不能沾满父级。</div>
+</div>
+<style>
+#div1 {min-height: 18px;background: red;/*position: relative;*/}
+#div2 {height: 100%;background: blue;/*position: absolute;*//*height: 0;*/}
+</style>
+<!--@貘吃馍香: 根据规范描述，min max 只影响到 height 的使用值，height其计算值本身还是auto，所以有这个问题。你给如容器加个非auto的height就可以。比如min-height: 100%; height:1px;-->
 
 
 
