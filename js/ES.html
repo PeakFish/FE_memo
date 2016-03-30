@@ -17,7 +17,19 @@ splice 拼合
 字符串
 slice
 split 分离
+
+.slice(start,end) end 可以为负数
+.substr(start,length)
+.substring(start,stop) stop 不可以为负数
+
+
 <script>
+
+var str = '0123456789';
+console.log(str.slice(0, -2));
+console.log(str.substr(0, 5));
+console.log(str.substring(0, 5));
+
 
 </script>
 
