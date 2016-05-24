@@ -54,6 +54,82 @@ if(document.uniqueID){
 
 
 
+<script>
+//http://www.cnblogs.com/windydays/archive/2012/04/09/2439519.html
+
+var arr = (function(excited){
+
+   return function(f){
+
+      return f(f);
+
+   }(function(f){
+
+      return excited(function(x){
+
+        return (f(f))(x);
+
+      });
+
+   });
+
+})(function(excited){
+
+   return function(i){
+
+       return (i < 0) ? [] : excited(i - 1).concat(i);
+
+   };
+
+})(99);
+
+
+
+
+console.log(arr);
+
+
+
+
+/*
+
+Y Combinator
+lambda演算
+
+*/
+
+
+var Y = function(h){
+
+    return (function(f){
+
+        return f(f);
+
+    })(function(f){
+
+        return h(function(n){
+
+            return f(f)(n);
+
+        });
+
+    });
+
+};
+
+var fact = Y(function (g) {
+    return function (n) {
+        if (n < 2) return 1;
+        return n * g(n - 1);
+    };
+});
+
+console.log(fact(12));
+
+
+
+</script>
+
 
 </body>
 </html>
