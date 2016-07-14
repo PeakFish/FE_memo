@@ -183,6 +183,43 @@ bugs
 
 
 
+
+
+/*
+var timer = 0;
+
+//停止的时候执行 debounce
+window.onscroll = function(){
+
+  clearTimeout(timer);
+
+  timer = setTimeout(log1, 1000);
+
+};
+
+function log1(){
+  console.log(timer);
+}
+
+
+//开始了就隔一段时间必须执行 throttle
+window.onscroll = function(){
+
+  if(!timer){
+    timer = setTimeout(log2, 1000);
+  }
+
+};
+
+function log2(){
+  console.log(timer);
+  timer = 0;
+}
+*/
+
+
+
+
 </script>
 
 
