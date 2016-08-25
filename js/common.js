@@ -61,13 +61,14 @@ function getOffsetLeft(o){
     }
     return left;
 }
+/*
 //判断一个变量是否定义了
 !function(){
     var i;
     console.log(eval(valExists("i")));
     console.log(eval(valExists("i2")));
 }();
-
+*/
 function valExists(valName){
     var arr=[],i=0;
     arr[i++]="var result;";
@@ -80,10 +81,6 @@ function valExists(valName){
     arr[i++]="result";
     return arr.join("");
 }
-
-
-
-
 
 
 
@@ -260,24 +257,24 @@ a = a ^ b;
 */
 
 
-    //缓存图片的方法
-    try{
+//缓存图片的方法
+try{
 
-        //var 宽度=123;
-        //alert(宽度);
-        //window();
+    //var 宽度=123;
+    //alert(宽度);
+    //window();
 
-    }catch (e){
+}catch(e){
 
-        alert(e.message);
-        var cacheimg=new Image();
-        cacheimg.onload=function(){
-            alert(cacheimg);
-            document.body.appendChild(cacheimg);
-        }
-        cacheimg.src="http://s1.bdstatic.com/r/www/cache/static/global/img/icons_15d9b398.png";
-        alert((new Image())+"123");
+    alert(e.message);
+    var cacheimg=new Image();
+    cacheimg.onload=function(){
+        alert(cacheimg);
+        document.body.appendChild(cacheimg);
     }
+    cacheimg.src="http://s1.bdstatic.com/r/www/cache/static/global/img/icons_15d9b398.png";
+    alert((new Image())+"123");
+}
 
 
 
@@ -393,13 +390,6 @@ Safari
 */
 
 
-
-
-
-
-
-
-
 /*张鑫旭的页面可见性*/
 var isPageVisibilitySupport = (function() {
     var support = false;
@@ -414,7 +404,6 @@ var isPageVisibilitySupport = (function() {
 })();
 //alert(isPageVisibilitySupport);
 /*张鑫旭的页面可见性 结束*/
-
 
 
 //获取url中的参数
@@ -435,49 +424,45 @@ function getQueryStringRegExp(name, url){
 
 }
 
-alert(getQueryStringRegExp("hello","http://localhost:8080/test.html?hellsdfo=lkl&aa=bb&test=cc+dd&ee=ff&hello=iod士大夫上jdkl"));
-
-
 
 /***********  移动端   *************/
 
+/*
+*长按处理函数，不兼容ie10 mobile
+*obj是元素
+*fn是长按的事件处理函数
+*pressTime是按住元素的时间 默认是750毫秒
+*/
+function mylongTap(obj,fn,pressTime){
+    pressTime ? +pressTime : pressTime = 750;
+    obj.addEventListener('touchstart', function(e){
+        obj.mylongTapTimer=setTimeout(function(){
+            fn(e);
+        },pressTime);
+    }, false);
 
+    obj.addEventListener('touchmove', function(e){
+        if(obj.mylongTapTimer){
+            clearTimeout( obj.mylongTapTimer );
+            obj.mylongTapTimer=null;
+        }
+    }, false);
 
-    /*
-    *长按处理函数，不兼容ie10 mobile
-    *obj是元素
-    *fn是长按的事件处理函数
-    *pressTime是按住元素的时间 默认是750毫秒
-    */
-    function mylongTap(obj,fn,pressTime){
-        pressTime ? +pressTime : pressTime = 750;
-        obj.addEventListener('touchstart', function(e){
-            obj.mylongTapTimer=setTimeout(function(){
-                fn(e);
-            },pressTime);
-        }, false);
+    obj.addEventListener('touchend', function(e){
+        if(obj.mylongTapTimer){
+            clearTimeout( obj.mylongTapTimer );
+            obj.mylongTapTimer=null;
+        }
+    }, false);
 
-        obj.addEventListener('touchmove', function(e){
-            if(obj.mylongTapTimer){
-                clearTimeout( obj.mylongTapTimer );
-                obj.mylongTapTimer=null;
-            }
-        }, false);
+    obj.addEventListener('touchcancle', function(e){
+        if(obj.mylongTapTimer){
+            clearTimeout( obj.mylongTapTimer );
+            obj.mylongTapTimer=null;
+        }
+    }, false);
+}
 
-        obj.addEventListener('touchend', function(e){
-            if(obj.mylongTapTimer){
-                clearTimeout( obj.mylongTapTimer );
-                obj.mylongTapTimer=null;
-            }
-        }, false);
-
-        obj.addEventListener('touchcancle', function(e){
-            if(obj.mylongTapTimer){
-                clearTimeout( obj.mylongTapTimer );
-                obj.mylongTapTimer=null;
-            }
-        }, false);
-    }
 //随机颜色
 function getRandomColor(){ return "#"+("00000"+((Math.random()*16777215+0.5)>>0).toString(16)).slice(-6); }
 
@@ -567,9 +552,6 @@ function numCircle(num, len){
 
     return num;
 }
-
-
-
 
 
 // 工具时间处理函数
