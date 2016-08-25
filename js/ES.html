@@ -6,10 +6,15 @@
 </head>
 <body>
 
+<span style="padding: 50px;display: inline;margin: 50px;">123</span>
+
+<p>
+
 数组
 slice 切成片
 splice 拼合
 
+</p>
 <script>
 
 </script>
@@ -18,9 +23,10 @@ splice 拼合
 slice
 split 分离
 
-.slice(start,end) end 可以为负数
-.substr(start,length)
-.substring(start,stop) stop 不可以为负数
+.split 字符串转数组
+.slice(start, end) end 可以为负数
+.substr(start, length)
+.substring(start, stop) stop 不可以为负数
 
 
 <script>
@@ -30,6 +36,7 @@ console.log(str.slice(0, -2));
 console.log(str.substr(0, 5));
 console.log(str.substring(0, 5));
 
+console.log(str.split(''));
 
 </script>
 
