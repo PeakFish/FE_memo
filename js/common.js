@@ -61,6 +61,16 @@ function getOffsetLeft(o){
     }
     return left;
 }
+function getElementPosition(e){
+  var x = 0, y = 0;
+  while(e){
+    x += e.offsetLeft;
+    y += e.offsetTop;
+    e = e.offsetParent;
+  }
+  return { x: x, y: y };
+}
+
 /*
 //判断一个变量是否定义了
 !function(){
@@ -405,6 +415,24 @@ var isPageVisibilitySupport = (function() {
 //alert(isPageVisibilitySupport);
 /*张鑫旭的页面可见性 结束*/
 
+//获取网址中的参数
+function getArgs(){
+
+    var args = new Object(); //声明一个空对象
+    var query = window.location.search.slice(1); // 取查询字符串，如从 http://www.snowpeak.org/testjs.htm?a1=v1&a2=&a3=v3#anchor 中截出 a1=v1&a2=&a3=v3。
+    var pairs = query.split("&"); // 以 & 符分开成数组
+
+    for(var i = 0; i < pairs.length; i++){
+        var pos = pairs[i].indexOf('='); // 查找 "name=value" 对
+        if (pos == -1) continue; // 若不成对，则跳出循环继续下一对
+        var argname = pairs[i].substring(0,pos); // 取参数名
+        var value = pairs[i].substring(pos+1); // 取参数值
+        value = decodeURIComponent(value); // 若需要，则解码
+        args[argname] = value; // 存成对象的一个属性
+    }
+    return args; // 返回此对象
+}
+
 
 //获取url中的参数
 function getQueryStringRegExp(name, url){
@@ -465,27 +493,6 @@ function mylongTap(obj,fn,pressTime){
 
 //随机颜色
 function getRandomColor(){ return "#"+("00000"+((Math.random()*16777215+0.5)>>0).toString(16)).slice(-6); }
-
-
-//获取网址中的参数
-function getArgs(){
-
-    var args = new Object(); //声明一个空对象
-    var query = window.location.search.slice(1); // 取查询字符串，如从 http://www.snowpeak.org/testjs.htm?a1=v1&a2=&a3=v3#anchor 中截出 a1=v1&a2=&a3=v3。
-    var pairs = query.split("&"); // 以 & 符分开成数组
-
-    for(var i = 0; i < pairs.length; i++){
-        var pos = pairs[i].indexOf('='); // 查找 "name=value" 对
-        if (pos == -1) continue; // 若不成对，则跳出循环继续下一对
-        var argname = pairs[i].substring(0,pos); // 取参数名
-        var value = pairs[i].substring(pos+1); // 取参数值
-        value = decodeURIComponent(value); // 若需要，则解码
-        args[argname] = value; // 存成对象的一个属性
-    }
-    return args; // 返回此对象
-}
-
-
 
 
 /**
