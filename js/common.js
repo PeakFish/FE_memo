@@ -660,3 +660,8 @@ function runCode(id) {
     TestWin.document.close(); 
 } 
 
+function LenB(str){
+    str = str.replace(/[^\x00-\xff]/g, "**");
+    return str.length;
+}
+
