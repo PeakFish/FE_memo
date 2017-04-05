@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+http://www.cnblogs.com/wwlhome/p/5650744.html
+
+<script type="text/javascript">
+
+function tounicode(data){
+
+   if(data == '') return '请输入汉字';
+   var str =''; 
+   for(var i=0;i<data.length;i++)
+   {
+      str+="\\u"+parseInt(data[i].charCodeAt(0),10).toString(16);
+   }
+   return str;
+}
+
+function tohanzi(data){
+
+    if(data == '') return '请输入十六进制unicode';
+    data = data.split("\\u");//Invalid Unicode escape sequence
+    var str ='';
+    for(var i=0;i<data.length;i++)
+    {
+      str+=String.fromCharCode(parseInt(data[i],16).toString(10));
+    }
+    return str;
+}
+
+</script>
+
+
+<div tabindex="0" hidefocus="true" onfocus='alert("得到焦点");' onblur='alert("失去焦点");' style="border:1px solid #ccc;width:200px;height:200px;outline=0;"></div>
+<!--http://www.lxway.com/259825081.htm-->
+
+</body>
+</html>
