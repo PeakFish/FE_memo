@@ -131,5 +131,66 @@ console.log(fact(12));
 </script>
 
 
+
+<script>
+
+var a, b, c;
+
+var type = 2;
+
+aFunc(judge)(type) === bFunc(type)
+
+
+function aFunc(fn){
+
+	return function(type){
+
+		if(type == 1){
+
+			fn(a && b && c);
+
+		}else if(type == 2){
+
+			fn(b && c);
+
+		}
+
+	};
+
+}
+
+function judge(evidence){
+	if(evidence){
+		alert('suc');
+	}else{
+		alert('err');
+	}
+}
+
+function bFunc(type){
+
+	if(type == 1){
+
+		if(a && b && c){
+			alert('suc');
+		}else{
+			alert('err');
+		}
+
+	}else if(type == 2){
+
+		if(b && c){
+			alert('suc');
+		}else{
+			alert('err');
+		}
+
+	}
+
+}
+
+</script>
+
+
 </body>
 </html>
