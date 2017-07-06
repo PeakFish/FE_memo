@@ -192,5 +192,26 @@ function bFunc(type){
 </script>
 
 
+
+<script type="text/javascript">
+
+fn();
+
+/*
+ie8 fn 能执行
+chrome fn 不能执行
+*/
+
+var a = {
+  fn: function fn(){
+    alert(123456);
+  },
+  sss: 123
+};
+
+</script>
+
+
+
 </body>
 </html>
