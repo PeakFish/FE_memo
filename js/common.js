@@ -665,3 +665,11 @@ function LenB(str){
     return str.length;
 }
 
+//转换数字为千位计数法 http://blog.csdn.net/u013408979/article/details/51910708
+function number_format(num){
+    return num && num
+    .toString()
+    .replace(/(^|\s)\d+/g, function(m){
+        return m.replace(/(?=(?!\b)(\d{3})+$)/g, ',');
+    });
+}
